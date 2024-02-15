@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CFMASCOTASNDMM.Models.Mascotas>
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h1>Lista de mascotas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary">Agregar</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Propietario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Propietario)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Idmascotas" class="btn btn-outline-warning">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Idmascotas" class="btn btn-outline-success">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Idmascotas" class="btn btn-outline-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

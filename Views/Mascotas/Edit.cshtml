@@ -1,0 +1,44 @@
+﻿@model CFMASCOTASNDMM.Models.Mascotas
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Idmascotas" />
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Especie" class="control-label"></label>
+                <input asp-for="Especie" class="form-control" />
+                <span asp-validation-for="Especie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Propietario" class="control-label"></label>
+                <input asp-for="Propietario" class="form-control" />
+                <span asp-validation-for="Propietario" class="text-danger"></span>
+            </div>
+            <ul></ul>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-outline-warning" />
+                <a asp-action="Index" class="btn btn-outline-danger">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+   
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
